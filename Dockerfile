@@ -7,12 +7,12 @@ RUN apk -U upgrade && \
     apk add --no-cache \
       wget \
       openssl \
-      ca-certificates
-
-RUN wget https://github.com/nzbget/nzbget/releases/download/v18.1/nzbget-18.1-bin-linux.run && \
-    sh ./nzbget-18.1-bin-linux.run --destdir /nzbget
-
-RUN addgroup -S media && adduser -S media -G media && \
+      ca-certificates && \
+\
+    wget https://github.com/nzbget/nzbget/releases/download/v18.1/nzbget-18.1-bin-linux.run && \
+    sh ./nzbget-18.1-bin-linux.run --destdir /nzbget && \
+\
+    addgroup -S media && adduser -S media -G media && \
     mkdir /movies /downloads /comics /tvseries && \
     chown -R media:media /movies/ /downloads/ /tvseries/ /comics/
 
