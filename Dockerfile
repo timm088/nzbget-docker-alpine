@@ -12,7 +12,7 @@ RUN apk -U upgrade && \
     wget https://github.com/nzbget/nzbget/releases/download/v18.1/nzbget-18.1-bin-linux.run && \
     sh ./nzbget-18.1-bin-linux.run --destdir /nzbget && \
 \
-    addgroup -S media && adduser -S media -G media && \
+    adduser -u 1001 -S media -G users && \
     mkdir /movies /downloads /comics /tvseries && \
     chown -R media:media /movies/ /downloads/ /tvseries/ /comics/
 
