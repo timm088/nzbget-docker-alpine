@@ -14,7 +14,7 @@ RUN apk -U upgrade && \
 \
     adduser -u 1001 -S media -G users && \
     mkdir /movies /downloads /comics /tvseries && \
-    chown -R media:media /movies/ /downloads/ /tvseries/ /comics/
+    chown -R media:users /movies/ /downloads/ /tvseries/ /comics/
 
 EXPOSE 6789
 
