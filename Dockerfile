@@ -7,6 +7,7 @@ RUN apk -U upgrade && \
     apk add --no-cache \
       wget \
       openssl \
+      curl \
       ca-certificates && \
 \
     wget https://github.com/nzbget/nzbget/releases/download/v18.1/nzbget-18.1-bin-linux.run && \
