@@ -8,14 +8,21 @@ RUN apk -U upgrade && \
       wget \
       openssl \
       curl \
-      ca-certificates && \
+      ca-certificates \
+      git \
+      python \
+      py2-pip \
+      py2-openssl py-libxml2 py2-lxml && \
 \
     wget https://github.com/nzbget/nzbget/releases/download/v18.1/nzbget-18.1-bin-linux.run && \
     sh ./nzbget-18.1-bin-linux.run --destdir /nzbget && \
 \
+    cd /nzbget/scripts && \
+    git clone --depth=1 https://github.com/clinton-hall/nzbToMedia && \
+\
     adduser -u 1001 -S media -G users && \
     mkdir /movies /downloads /comics /tvseries && \
-    chown -R media:users /movies/ /downloads/ /tvseries/ /comics/
+    chown -R media:users /movies/ /downloads/ /tvseries/ /comics/ /nzbget/
 
 EXPOSE 6789
 
