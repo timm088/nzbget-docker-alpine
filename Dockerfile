@@ -10,6 +10,8 @@ RUN apk -U upgrade && \
       curl \
       ca-certificates \
       git \
+      p7zip \
+      ffmpeg \
       python \
       py2-pip \
       py2-openssl py-libxml2 py2-lxml && \
