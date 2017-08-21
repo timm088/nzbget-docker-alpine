@@ -1,8 +1,5 @@
 FROM alpine:3.6
 
-ENV LANG='en_AU.UTF-8' \
-    LANGUAGE='en_AU.UTF-8'
-
 RUN apk -U upgrade && \
     apk add --no-cache \
       wget \
@@ -14,6 +11,7 @@ RUN apk -U upgrade && \
       ffmpeg \
       python \
       py2-pip \
+      tzdata \
       py2-openssl py-libxml2 py2-lxml && \
 \
     wget https://github.com/nzbget/nzbget/releases/download/v18.1/nzbget-18.1-bin-linux.run && \
