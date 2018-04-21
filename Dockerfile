@@ -14,8 +14,8 @@ RUN apk -U upgrade && \
       tzdata \
       py2-openssl py-libxml2 py2-lxml && \
 \
-    wget https://github.com/nzbget/nzbget/releases/download/v18.1/nzbget-18.1-bin-linux.run && \
-    sh ./nzbget-18.1-bin-linux.run --destdir /nzbget && \
+    wget https://github.com/nzbget/nzbget/releases/download/v19.1/nzbget-19.1-bin-linux.run && \
+    sh ./nzbget-19.1-bin-linux.run --destdir /nzbget && \
 \
     cd /nzbget/scripts && \
     git clone --depth=1 https://github.com/clinton-hall/nzbToMedia && \
