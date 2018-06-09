@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.7
 
 RUN apk -U upgrade && \
     apk add --no-cache \
@@ -14,8 +14,8 @@ RUN apk -U upgrade && \
       tzdata \
       py2-openssl py-libxml2 py2-lxml && \
 \
-    wget https://github.com/nzbget/nzbget/releases/download/v19.1/nzbget-19.1-bin-linux.run && \
-    sh ./nzbget-19.1-bin-linux.run --destdir /nzbget && \
+    wget https://github.com/nzbget/nzbget/releases/download/v20.0/nzbget-20.0-bin-linux.run && \
+    sh ./nzbget-20.0-bin-linux.run --destdir /nzbget && \
 \
     cd /nzbget/scripts && \
     git clone --depth=1 https://github.com/clinton-hall/nzbToMedia && \
