@@ -1,25 +1,25 @@
-FROM alpine:3.7
+FROM alpine:3.8
 
 RUN apk -U upgrade && \
     apk add --no-cache \
-      wget \
-      openssl \
-      curl \
-      ca-certificates \
-      git \
-      p7zip \
-      ffmpeg \
-      python \
-      py2-pip \
-      tzdata \
-      py2-openssl py-libxml2 py2-lxml && \
-\
+    wget \
+    openssl \
+    curl \
+    ca-certificates \
+    git \
+    p7zip \
+    ffmpeg \
+    python \
+    py2-pip \
+    tzdata \
+    py2-openssl py-libxml2 py2-lxml && \
+    \
     wget https://github.com/nzbget/nzbget/releases/download/v20.0/nzbget-20.0-bin-linux.run && \
     sh ./nzbget-20.0-bin-linux.run --destdir /nzbget && \
-\
+    \
     cd /nzbget/scripts && \
     git clone --depth=1 https://github.com/clinton-hall/nzbToMedia && \
-\
+    \
     adduser -u 1001 -S media -G users && \
     mkdir /movies /downloads /comics /tvseries && \
     chown -R media:users /movies/ /downloads/ /tvseries/ /comics/ /nzbget/
