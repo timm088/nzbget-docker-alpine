@@ -9,10 +9,7 @@ RUN apk -U upgrade && \
     git \
     p7zip \
     ffmpeg \
-    python \
-    py2-pip \
-    tzdata \
-    py2-openssl py-libxml2 py2-lxml && \
+    tzdata && \
     \
     wget https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-bin-linux.run && \
     sh ./nzbget-21.0-bin-linux.run --destdir /nzbget && \
