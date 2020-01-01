@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:3.11
 
 RUN apk -U upgrade && \
     apk add --no-cache \
@@ -10,9 +10,9 @@ RUN apk -U upgrade && \
     p7zip \
     ffmpeg \
     python \
-    py2-pip \
+    py3-pip \
     tzdata \
-    py2-openssl py-libxml2 py2-lxml && \
+    py3-openssl py3-lxml && \
     \
     wget https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-bin-linux.run && \
     sh ./nzbget-21.0-bin-linux.run --destdir /nzbget && \
