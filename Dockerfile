@@ -14,7 +14,7 @@ RUN apk -U upgrade && \
     tzdata \
     py3-openssl py3-lxml && \
     \
-    ln -s /usr/bin/python3 /usr/bin/python && \
+    ln -s -f /usr/bin/python3 /usr/bin/python && \
     \
     wget https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-bin-linux.run && \
     sh ./nzbget-21.0-bin-linux.run --destdir /nzbget && \
