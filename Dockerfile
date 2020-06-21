@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM python:3.8-alpine
 
 RUN apk -U upgrade && \
     apk add --no-cache \
@@ -9,10 +9,17 @@ RUN apk -U upgrade && \
     git \
     p7zip \
     ffmpeg \
-    python \
-    py2-pip \
     tzdata \
-    py2-openssl py-libxml2 py2-lxml && \
+    openssl \
+    libxml2 \
+    libxml2-dev \
+    libxslt \
+    libxslt-dev \
+    musl-dev \
+    gcc && \
+    \
+    pip install --no-cache-dir \
+    lxml && \
     \
     wget https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-bin-linux.run && \
     sh ./nzbget-21.0-bin-linux.run --destdir /nzbget && \
@@ -22,7 +29,14 @@ RUN apk -U upgrade && \
     \
     adduser -u 1001 -S media -G users && \
     mkdir /movies /downloads /comics /tvseries && \
-    chown -R media:users /movies/ /downloads/ /tvseries/ /comics/ /nzbget/
+    chown -R media:users /movies/ /downloads/ /tvseries/ /comics/ /nzbget/ && \
+    \
+    apk del \
+    gcc \
+    libxml2-dev \
+    libxslt-dev \
+    wget \
+    musl-dev
 
 EXPOSE 6789
 
