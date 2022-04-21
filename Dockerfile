@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:alpine3.15
 
 RUN apk -U upgrade && \
     apk add --no-cache \
@@ -21,8 +21,8 @@ RUN apk -U upgrade && \
     pip install --no-cache-dir \
     lxml && \
     \
-    wget https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-bin-linux.run && \
-    sh ./nzbget-21.0-bin-linux.run --destdir /nzbget && \
+    wget https://github.com/nzbget/nzbget/releases/download/v21.1/nzbget-21.1-bin-linux.run && \
+    sh ./nzbget-21.1-bin-linux.run --destdir /nzbget && \
     \
     cd /nzbget/scripts && \
     git clone --depth=1 https://github.com/clinton-hall/nzbToMedia && \
